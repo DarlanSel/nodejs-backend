@@ -1,0 +1,30 @@
+@base = http://localhost:3000/products
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3LCJuYW1lIjoiRGFybGFuIiwiZW1haWwiOiJkYXJsYW5AZ21haWwuY29tIiwicGFzc3dvcmQiOiIxMjM0NTZkYSIsImlzQWRtaW4iOnRydWUsImNyZWF0ZWRBdCI6IjIwMjEtMTItMDlUMTQ6MDk6MzUuMDQ3WiIsInVwZGF0ZWRBdCI6IjIwMjEtMTItMDlUMTQ6MDk6MzUuMDQ3WiJ9LCJsb2dnZWRJbiI6IjIwMjEtMTItMDlUMTc6MTc6NDUuMzU4WiIsImV4cGlyZXNJbiI6IjIwMjEtMTItMTBUMTc6MTc6NDUuMzU4WiIsImlhdCI6MTYzOTA3MDI2NSwiZXhwIjoxNjM5MTU2NjY1fQ.a5KzYqwYEpiFkBS03gTAvtgUlu3snmauB4B3eK_pHOA
+
+### Create Product
+POST {{base}}
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "name": "Monitor 2",
+  "price": 50.5,
+  "description": "tela"
+}
+
+### List all Products
+GET {{base}}
+
+### Show Product
+GET {{base}}/3
+
+### Update Product
+PUT {{base}}/1
+Content-Type: application/json
+
+{
+  "name": "Note Pika"
+}
+
+### Destroy Product
+DELETE {{base}}/3

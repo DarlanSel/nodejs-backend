@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "darlan",
+    "password": null,
+    "database": "pj_tac",
+    "host": "localhost",
+    "dialect": "postgresql"
+  },
+  "test": {
+    "username": "darlan",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "darlan",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}

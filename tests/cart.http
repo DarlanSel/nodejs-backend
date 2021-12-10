@@ -1,0 +1,36 @@
+@base = http://localhost:3000/cart
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3LCJuYW1lIjoiRGFybGFuIiwiZW1haWwiOiJkYXJsYW5AZ21haWwuY29tIiwicGFzc3dvcmQiOiIxMjM0NTZkYSIsImlzQWRtaW4iOnRydWUsImNyZWF0ZWRBdCI6IjIwMjEtMTItMDlUMTQ6MDk6MzUuMDQ3WiIsInVwZGF0ZWRBdCI6IjIwMjEtMTItMDlUMTQ6MDk6MzUuMDQ3WiJ9LCJsb2dnZWRJbiI6IjIwMjEtMTItMDlUMTc6MTc6NDUuMzU4WiIsImV4cGlyZXNJbiI6IjIwMjEtMTItMTBUMTc6MTc6NDUuMzU4WiIsImlhdCI6MTYzOTA3MDI2NSwiZXhwIjoxNjM5MTU2NjY1fQ.a5KzYqwYEpiFkBS03gTAvtgUlu3snmauB4B3eK_pHOA
+@tokenNoAdmin = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2LCJuYW1lIjoiTWFyaWEiLCJlbWFpbCI6Im1hcmlhQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiMTIzNDU2ZGEiLCJpc0FkbWluIjpmYWxzZSwiY3JlYXRlZEF0IjoiMjAyMS0xMi0wOVQxMzoxNzowMS42ODdaIiwidXBkYXRlZEF0IjoiMjAyMS0xMi0wOVQxMzoxNzozMy40OTdaIn0sImxvZ2dlZEluIjoiMjAyMS0xMi0wOVQxNjo0MToyNC41ODNaIiwiZXhwaXJlc0luIjoiMjAyMS0xMi0xMFQxNjo0MToyNC41ODNaIiwiaWF0IjoxNjM5MDY4MDg0LCJleHAiOjE2MzkxNTQ0ODR9.LhcjN8n0xOQosUJFz2WzDpe3fRC0nwP9pUXO3Q5GTSo
+
+
+### Get Current Cart
+GET {{base}}
+Authorization: {{tokenNoAdmin}}
+# Authorization: {{token}}
+
+
+### Add item to Cart
+POST {{base}}/items
+Content-Type: application/json
+Authorization: {{tokenNoAdmin}}
+
+{
+  "productId": 1,
+  "quantity": 2
+}
+
+
+### Remove item from Cart
+DELETE {{base}}/items/1
+Content-Type: application/json
+Authorization: {{tokenNoAdmin}}
+
+{
+  "quantity": 2
+}
+
+
+### Pay Cart
+PUT {{base}}/pay
+Authorization: {{tokenNoAdmin}}
+Content-Type: application/json

@@ -1,0 +1,45 @@
+@base = http://localhost:3000/users
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo3LCJuYW1lIjoiRGFybGFuIiwiZW1haWwiOiJkYXJsYW5AZ21haWwuY29tIiwicGFzc3dvcmQiOiIxMjM0NTZkYSIsImlzQWRtaW4iOnRydWUsImNyZWF0ZWRBdCI6IjIwMjEtMTItMDlUMTQ6MDk6MzUuMDQ3WiIsInVwZGF0ZWRBdCI6IjIwMjEtMTItMDlUMTQ6MDk6MzUuMDQ3WiJ9LCJsb2dnZWRJbiI6IjIwMjEtMTItMDlUMTc6MTc6NDUuMzU4WiIsImV4cGlyZXNJbiI6IjIwMjEtMTItMTBUMTc6MTc6NDUuMzU4WiIsImlhdCI6MTYzOTA3MDI2NSwiZXhwIjoxNjM5MTU2NjY1fQ.a5KzYqwYEpiFkBS03gTAvtgUlu3snmauB4B3eK_pHOA
+@tokenNoAdmin = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo2LCJuYW1lIjoiTWFyaWEiLCJlbWFpbCI6Im1hcmlhQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiMTIzNDU2ZGEiLCJpc0FkbWluIjpmYWxzZSwiY3JlYXRlZEF0IjoiMjAyMS0xMi0wOVQxMzoxNzowMS42ODdaIiwidXBkYXRlZEF0IjoiMjAyMS0xMi0wOVQxMzoxNzozMy40OTdaIn0sImxvZ2dlZEluIjoiMjAyMS0xMi0wOVQxNjo0MToyNC41ODNaIiwiZXhwaXJlc0luIjoiMjAyMS0xMi0xMFQxNjo0MToyNC41ODNaIiwiaWF0IjoxNjM5MDY4MDg0LCJleHAiOjE2MzkxNTQ0ODR9.LhcjN8n0xOQosUJFz2WzDpe3fRC0nwP9pUXO3Q5GTSo
+
+### Create User
+POST {{base}}
+Content-Type: application/json
+
+{
+  "name": "Darlan",
+  "email": "darlan@gmail.com",
+  "password": "123456da",
+  "isAdmin": true
+}
+
+### Authenticate User
+POST {{base}}/authenticate
+Content-Type: application/json
+
+{
+  "email": "darlan@gmail.com",
+  "password": "123456da"
+}
+
+### List all Users
+GET {{base}}
+Authorization: {{token}}
+
+
+### Show user
+GET {{base}}/5
+Authorization: {{tokenNoAdmin}}
+
+
+### Update User
+PUT {{base}}/6
+Content-Type: application/json
+
+{
+  "name": "Maria"
+}
+
+
+### Destroy user
+DELETE {{base}}/3
